@@ -1,0 +1,21 @@
+{
+  "name": "car-demo-frontend",
+  "version": "1.0.0",
+  "description": "Frontend applications for car demo system",
+  "private": true,
+  "workspaces": [
+    "A1-car-user-app",
+    "A2-rental-staff-app"
+  ],
+  "scripts": {
+    "install-all": "npm install && cd A1-car-user-app && npm install && cd ../A2-rental-staff-app && npm install",
+    "dev-all": "concurrently \"npm run dev:a1\" \"npm run dev:a2\"",
+    "dev:a1": "cd A1-car-user-app && npm start",
+    "dev:a2": "cd A2-rental-staff-app && npm start",
+    "build-all": "cd A1-car-user-app && npm run build && cd ../A2-rental-staff-app && npm run build",
+    "test-all": "cd A1-car-user-app && npm test && cd ../A2-rental-staff-app && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
